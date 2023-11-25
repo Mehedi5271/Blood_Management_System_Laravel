@@ -12,8 +12,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h4 class="box-title">All District</h4>
-                        <a href="{{route('district.create')}}" class="btn btn-info btn-sm"><i class="fa "></i>Add District</a>
+                        <h4 class="box-title">All Blood Group</h4>
+                        <a href="{{route('blood.create')}}" class="btn btn-info btn-sm"><i class="fa "></i>Add Blood Group</a>
                     </div>
                     <div class="card-body">
                         <div class="table-stats order-table ov-h">
@@ -21,8 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th class="serial">Serial</th>
-                                        <th>District Name</th>
-                                        <th>Division Name</th>
+                                        <th>Blood Group</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -30,16 +29,15 @@
                                     @php
                                         $serial = 1;
                                     @endphp
-                                    @foreach ($districts as $district)
+                                    @foreach ($bloods as $blood)
                                         
                                    
                                     <tr>
                                         <td class="serial">{{$serial++}}</td>
-                                        <td>{{$district->name}}</td>
-                                        <td>{{$district->divisons->name}}</td>
+                                        <td>{{$blood->group}}</td>
                                         <td>
                                        
-                                            <form action="{{ route('district.delete', ['id' => $district->id]) }}" method="POST">
+                                            <form action="{{ route('blood.delete', ['id' => $blood->id]) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-success btn-sm">Delete</button>
