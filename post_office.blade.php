@@ -12,8 +12,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h4 class="box-title">All Upazilla</h4>
-                        <a href="{{route('upazilla.create')}}" class="btn btn-info btn-sm"><i class="fa "></i>Add Upazilla</a>
+                        <h4 class="box-title">All Post Office</h4>
+                        <a href="{{route('post_office.create')}}" class="btn btn-info btn-sm"><i class="fa "></i>Add Post Office</a>
                     </div>
                     <div class="card-body">
                         <div class="table-stats order-table ov-h">
@@ -22,6 +22,7 @@
                                     <tr>
                                         <th class="serial">Serial</th>
                                         
+                                        <th>Post Office Name</th>
                                         <th>Upazilla Name</th>
                                         <th>District Name</th>
                                         <th>Division Name</th>
@@ -34,19 +35,22 @@
                                         $serial =1;
                                     @endphp
 
-                                    @foreach ($upazillas as $upazilla)
+                                    @foreach ($post_offices as $post_office)
                                         
                 
                                     <tr>
                                         <td class="serial">{{$serial++}}</td>
                                        
-                                        <td>{{$upazilla->name}}</td>
-                                        <td>{{$upazilla->district->name}}</td>
-                                        <td>{{$upazilla->divisons->name}}</td>
+                                        <td>{{$post_office->name}}</td>
+                                        <td>{{$post_office->upazila->name}}</td>
+                                        <td>{{$post_office->district->name}}</td>
+                                        <td>{{$post_office->division->name}}</td>
                                         <td>
-                                       
                                             <a href="" class="btn btn-success btn-sm">Delete</a>
                                         </td>
+                                       
+                                          
+                                        
                                     </tr>
 
                                     @endforeach
